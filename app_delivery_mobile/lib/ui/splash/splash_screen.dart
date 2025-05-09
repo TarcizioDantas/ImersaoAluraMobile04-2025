@@ -5,6 +5,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Image.asset('assets/banners/banner_splash.png'),
+    );
   }
 }
