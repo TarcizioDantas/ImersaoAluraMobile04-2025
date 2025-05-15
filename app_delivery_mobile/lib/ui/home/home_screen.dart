@@ -1,3 +1,5 @@
+import 'package:app_delivery_mobile/data/categories_data.dart';
+import 'package:app_delivery_mobile/ui/home/widgets/category_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,19 +25,30 @@ class HomeScreen extends StatelessWidget {
             ),
            body: Padding(
              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 32,
-               children: [
-                Center(
-                  child: Image.asset('assets/logo.png', width: 200),
-                ),
-                Text("Boas-vindas!"),
-                TextFormField(),
-                Text("Escolha por categoria"),
-                Image.asset('assets/banners/banner_promo.png'),
-                Text("Bem avaliados"),
-               ],
+             child: SingleChildScrollView(
+               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 32,
+                 children: [
+                  Center(
+                    child: Image.asset('assets/logo.png', width: 200),
+                  ),
+                  Text("Boas-vindas!"),
+                  TextFormField(),
+                  Text("Escolha por categoria"),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      spacing: 8,
+                      children: List.generate(CategoriesData.listCategories.length, (index ,){
+                      return CategoryWidget(category: CategoriesData.listCategories[index],);
+                    }),),
+                  ),
+                  Image.asset('assets/banners/banner_promo.png'),
+                  Text("Bem avaliados"),
+                  SizedBox(height: 64.0),
+                 ],
+               ),
              ),
            ),
        );
