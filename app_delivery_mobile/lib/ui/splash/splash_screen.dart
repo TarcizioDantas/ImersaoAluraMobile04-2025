@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           Image.asset('assets/banners/banner_splash.png'),
           Center(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(24,150,24,0),
+              padding: const EdgeInsets.fromLTRB(24,50,24,0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 32
