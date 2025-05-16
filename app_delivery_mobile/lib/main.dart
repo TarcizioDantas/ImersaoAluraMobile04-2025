@@ -1,9 +1,26 @@
+import 'package:app_delivery_mobile/data/restaurant_data.dart';
 import 'package:app_delivery_mobile/ui/_core/app_theme.dart';
 import 'package:app_delivery_mobile/ui/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();// Carregar os dados do JSON
+  RestaurantData restaurantData = RestaurantData();
+  await restaurantData.getRestaurants();
+  
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context){
+            return restaurantData;
+          },
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

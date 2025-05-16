@@ -1,6 +1,10 @@
 import 'package:app_delivery_mobile/data/categories_data.dart';
+import 'package:app_delivery_mobile/data/restaurant_data.dart';
+import 'package:app_delivery_mobile/model/restaurant.dart';
 import 'package:app_delivery_mobile/ui/home/widgets/category_widget.dart';
+import 'package:app_delivery_mobile/ui/home/widgets/restaurant_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -8,6 +12,8 @@ class HomeScreen extends StatelessWidget {
 
    @override
    Widget build(BuildContext context) {
+    RestaurantData restaurantData = Provider.of<RestaurantData>(context);
+    //restaurantData.getRestaurants();
        return Scaffold(
            drawer: Drawer(),
            appBar: AppBar(
@@ -46,6 +52,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Image.asset('assets/banners/banner_promo.png'),
                   Text("Bem avaliados"),
+                  Column(
+                    spacing: 12,
+                    children: List.generate(restaurantData.listRestaurant.length, (index){
+                      Restaurant restaurant = restaurantData.listRestaurant[index];
+                      return RestaurantWidget(restaurant: restaurant);
+                    }),
+                  ),
                   SizedBox(height: 64.0),
                  ],
                ),
