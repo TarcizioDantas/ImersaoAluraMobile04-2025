@@ -26,7 +26,9 @@ class RestaurantScreen extends StatelessWidget {
                           // Aqui você pode adicionar a lógica para abrir a tela de detalhes do prato
                           //Ex. Navigator.push(context, MaterialPageRoute(builder: (context) => DishDetailScreen(dish: dish)));
                         },
-                          leading: Image.asset('assets/${restaurant.imagePath}', width: 50,),
+                          leading: Image.asset('assets/${dish.imagePath}', width: 80,
+                          height: 80,
+                          ),
                           title: Text(dish.name),
                           subtitle: Text('R\$ ${dish.price.toStringAsFixed(2)}'),
                           trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add_circle_outline),),
