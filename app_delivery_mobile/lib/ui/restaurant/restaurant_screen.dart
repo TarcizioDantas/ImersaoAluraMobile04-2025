@@ -2,6 +2,7 @@ import 'package:app_delivery_mobile/model/dish.dart';
 import 'package:app_delivery_mobile/model/restaurant.dart';
 import 'package:app_delivery_mobile/ui/_core/bag_provider.dart';
 import 'package:app_delivery_mobile/ui/_core/widgets/appbar.dart';
+import 'package:app_delivery_mobile/ui/dish/dish_datalhes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,7 @@ class RestaurantScreen extends StatelessWidget {
                         onTap: () {
                           // Aqui você pode adicionar a lógica para abrir a tela de detalhes do prato
                           //Ex. Navigator.push(context, MaterialPageRoute(builder: (context) => DishDetailScreen(dish: dish)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => DishDatalhes(dish: dish, restaurant: restaurant,)));
                         },
                           leading: Image.asset('assets/${dish.imagePath}', width: 80,
                           height: 80,

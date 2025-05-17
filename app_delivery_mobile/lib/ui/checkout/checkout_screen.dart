@@ -26,27 +26,23 @@ class CheckoutScreen extends StatelessWidget {
         ),
            body: SingleChildScrollView(
              child: Column(
+               crossAxisAlignment: CrossAxisAlignment.stretch,
                children: [
-                 Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.lightBackgroundColor,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 5,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                   child: Column(
-                     children: [
-                       Padding(
-                         padding: const EdgeInsets.all(16.0),
-                         child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                       ),
-                       Text("Pedidos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                     ],
+                 Center(
+                   child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightBackgroundColor,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                     child: Column(
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.all(16.0),
+                           child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                         ),
+                         Text("Pedidos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
                    ),
                  ),
                  
