@@ -1,5 +1,6 @@
 import 'package:app_delivery_mobile/data/restaurant_data.dart';
 import 'package:app_delivery_mobile/ui/_core/app_theme.dart';
+import 'package:app_delivery_mobile/ui/_core/bag_provider.dart';
 import 'package:app_delivery_mobile/ui/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,11 @@ void main() async {
         ChangeNotifierProvider(
           create: (context){
             return restaurantData;
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (context){
+            return BagProvider();
           },
         ),
       ],
