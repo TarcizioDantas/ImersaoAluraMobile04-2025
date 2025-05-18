@@ -1,5 +1,6 @@
 import 'package:app_delivery_mobile/model/dish.dart';
 import 'package:app_delivery_mobile/model/restaurant.dart';
+import 'package:app_delivery_mobile/ui/_core/app_colors.dart';
 import 'package:app_delivery_mobile/ui/_core/bag_provider.dart';
 import 'package:app_delivery_mobile/ui/_core/widgets/appbar.dart';
 import 'package:app_delivery_mobile/ui/dish/dish_datalhes.dart';
@@ -38,7 +39,7 @@ class RestaurantScreen extends StatelessWidget {
                           subtitle: Text('R\$ ${dish.price.toStringAsFixed(2)}'),
                           trailing: IconButton(onPressed: (){
                             context.read<BagProvider>().addAllDishes([dish]);
-                          }, icon: Icon(Icons.add_circle_outline),),
+                          }, icon: Icon(Icons.add_circle_outline, color: AppColors.mainColor,),),
                        );
                      }),
                    ),

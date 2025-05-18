@@ -1,6 +1,9 @@
 import 'package:app_delivery_mobile/model/dish.dart';
 import 'package:app_delivery_mobile/model/restaurant.dart';
+import 'package:app_delivery_mobile/ui/_core/app_colors.dart';
+import 'package:app_delivery_mobile/ui/_core/bag_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DishDatalhes extends StatelessWidget {
   final Restaurant restaurant;
@@ -9,6 +12,7 @@ class DishDatalhes extends StatelessWidget {
 
    @override
    Widget build(BuildContext context) {
+    BagProvider bagProvider = Provider.of<BagProvider>(context);
        return Scaffold(
            appBar: AppBar(title: Text(restaurant.name),),
            body: Padding(
@@ -34,6 +38,23 @@ class DishDatalhes extends StatelessWidget {
                  Padding(
                    padding: const EdgeInsets.all(12.0),
                    child: Text(dish.description, style: TextStyle(fontSize: 16),),
+                 ),
+                 Center(
+                   child: Row(
+                               mainAxisSize: MainAxisSize.min,
+                               children: [
+                                 IconButton(onPressed: (){
+                                   bagProvider.removeDish(dish);
+                                 }, icon: Icon(Icons.remove_circle_outline, color: AppColors.mainColor,)),
+                                 Text(
+                                   bagProvider.getMapByAmount()[dish] != null ? bagProvider.getMapByAmount()[dish].toString() : "0",
+                                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.mainColor),
+                                 ),
+                                 IconButton(onPressed: (){
+                                   bagProvider.addAllDishes([dish]);
+                                 }, icon: Icon(Icons.add_circle_outline, color: AppColors.mainColor,)),
+                               ],
+                             ),
                  ),
                ],
              ),

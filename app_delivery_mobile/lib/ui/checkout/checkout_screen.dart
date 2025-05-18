@@ -19,7 +19,7 @@ class CheckoutScreen extends StatelessWidget {
               bagProvider.clearBag();
               Navigator.pop(context);
             }, 
-              child: Text("Limpar", style: TextStyle(color: Colors.white),),
+              child: Text("Limpar", style: TextStyle(color: AppColors.mainColor),),
             ),
           ],
           centerTitle: true,
@@ -38,7 +38,7 @@ class CheckoutScreen extends StatelessWidget {
                        children: [
                          Padding(
                            padding: const EdgeInsets.all(16.0),
-                           child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                           child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.mainColor),),
                          ),
                          Text("Pedidos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                        ],
@@ -78,11 +78,11 @@ class CheckoutScreen extends StatelessWidget {
                              children: [
                                IconButton(onPressed: (){
                                  bagProvider.removeDish(dish);
-                               }, icon: Icon(Icons.remove_circle_outline)),
-                               Text(bagProvider.getMapByAmount()[dish].toString(), style: TextStyle(fontSize: 18),),
+                               }, icon: Icon(Icons.remove_circle_outline, color: AppColors.mainColor,)),
+                               Text(bagProvider.getMapByAmount()[dish].toString(), style: TextStyle(fontSize: 18, color: AppColors.mainColor),),
                                IconButton(onPressed: (){
                                  bagProvider.addAllDishes([dish]);
-                               }, icon: Icon(Icons.add_circle_outline)),
+                               }, icon: Icon(Icons.add_circle_outline, color: AppColors.mainColor,)),
                              ],
                            ),
                          ),
@@ -92,16 +92,19 @@ class CheckoutScreen extends StatelessWidget {
                      ),
                    ),
                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Aqui você pode adicionar a lógica para finalizar o pedido
-                      // Ex. Navigator.push(context, MaterialPageRoute(builder: (context) => OrderConfirmationScreen()));
-                    },
-                    child: Text("Finalizar Pedido"),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.mainColor,
-                      padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                      textStyle: TextStyle(fontSize: 18),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Aqui você pode adicionar a lógica para finalizar o pedido
+                        // Ex. Navigator.push(context, MaterialPageRoute(builder: (context) => OrderConfirmationScreen()));
+                      },
+                      child: Text("Finalizar Pedido"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.mainColor,
+                        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                        textStyle: TextStyle(fontSize: 18),
+                      ),
                     ),
                   ),
                   SizedBox(height: 30,),
