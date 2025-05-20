@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       return RestaurantWidget(restaurant: restaurant);
                     }),
                   ),
-                  SizedBox(height: 64.0),
+                  SizedBox(height: 1.0),
                  ],
                ),
              ),

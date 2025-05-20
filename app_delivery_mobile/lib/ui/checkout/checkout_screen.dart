@@ -28,24 +28,23 @@ class CheckoutScreen extends StatelessWidget {
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.stretch,
                children: [
-                 Center(
-                   child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.lightBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                     child: Column(
-                       children: [
-                         Padding(
-                           padding: const EdgeInsets.all(16.0),
-                           child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.mainColor),),
-                         ),
-                         Text("Pedidos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                       ],
-                     ),
+                 Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.lightBackgroundColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                   child: Column(
+                     children: [
+                       Padding(
+                         padding: const EdgeInsets.all(16.0),
+                         child: Text('Total do seu pedido: R\$ ${bagProvider.dishesOnBag.fold(0, (previousValue, element) => previousValue + element.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.mainColor),),
+                       ),
+                       Text("Pedidos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                     ],
                    ),
                  ),
                  
+                 //LISTA DE PEDIDOS
                  Padding(
                    padding: const EdgeInsets.all(12.0),
                    child: Column(
