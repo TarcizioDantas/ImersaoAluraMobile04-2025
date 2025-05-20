@@ -91,25 +91,31 @@ class CheckoutScreen extends StatelessWidget {
                      },
                      ),
                    ),
+                   
                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-                    child: ElevatedButton(
+                 SizedBox(height: 50,),
+               ],
+             ),
+           ),
+           bottomSheet: Container(
+             height: 50,
+             color: AppColors.lightBackgroundColor,
+             child: Center(
+               child: ElevatedButton(
                       onPressed: () {
                         // Aqui você pode adicionar a lógica para finalizar o pedido
                         // Ex. Navigator.push(context, MaterialPageRoute(builder: (context) => OrderConfirmationScreen()));
                       },
-                      child: Text("Finalizar Pedido"),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.mainColor,
                         padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                         textStyle: TextStyle(fontSize: 18),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 30,),
-               ],
-             ),
-           ));
+                      child: Text("Finalizar Pedido"),
+                    ), 
+               
+               ),
+           ),
+);
   }
 }
