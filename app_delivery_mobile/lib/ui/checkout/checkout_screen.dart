@@ -94,13 +94,13 @@ class CheckoutScreen extends StatelessWidget {
                    childCount: bagProvider.getMapByAmount().length,
                  ),
                ),
-               SliverToBoxAdapter(
+               SliverToBoxAdapter(//espaçamento no final da lista
                  child: SizedBox(height: 70,),
                ),
              ],
            ),
             
-           // Exibe o botão de finalizar pedido na parte inferior da tela
+           // Exibe o botão de finalizar pedido na parte inferior da tela fixado
            bottomSheet: Container(
              height: 50,
              color: AppColors.lightBackgroundColor,
@@ -121,5 +121,5 @@ class CheckoutScreen extends StatelessWidget {
                ),
            ),
 );
-  }
+}
 }

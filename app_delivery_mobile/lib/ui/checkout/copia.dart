@@ -1,5 +1,8 @@
+import 'package:app_delivery_mobile/model/dish.dart';
 import 'package:app_delivery_mobile/ui/_core/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:app_delivery_mobile/ui/_core/bag_provider.dart';
+import 'package:provider/provider.dart';
 
 class Copia extends StatelessWidget {
 
@@ -7,6 +10,7 @@ class Copia extends StatelessWidget {
 
    @override
    Widget build(BuildContext context) {
+    BagProvider bagProvider = Provider.of<BagProvider>(context);
        return Scaffold(
            appBar: AppBar(title: const Text('ok'),),
            body: SingleChildScrollView(
